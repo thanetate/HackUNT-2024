@@ -87,14 +87,14 @@
 }
 .match-card-container {
   width: 100%;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 500px);
   margin-top: -100px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 0;
 }
 .match-card-row {
   display: flex;

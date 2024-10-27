@@ -10,6 +10,7 @@ import Swipe from "./pages/Swipe";
 import Company from "./pages/Company";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import { SwipeProvider } from "./context/SwipeContext";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
@@ -19,7 +20,11 @@ createRoot(document.getElementById("root")!).render(
 				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
-				<Route path="/swipe" element={<Swipe />} />
+				<Route path="/swipe" element={
+					<SwipeProvider>
+						<Swipe />
+					</SwipeProvider>
+				} />
 				<Route path="/company" element={<Company />} />
 				<Route path="/careers" element={<Careers />} />
 				<Route path="/contact" element={<Contact />} />

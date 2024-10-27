@@ -1,7 +1,7 @@
 "use client";
-
+import { useSwipes } from '../../context/SwipeContext';
 import TinderCard from 'react-tinder-card';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
 
 
@@ -18,6 +18,19 @@ const db = [
 ];
 
 const TinderCards = () => {
+  useEffect(() => {
+    const clearSwipes = async () => {
+      try {
+        await axios.delete("http://localhost:3000/swipes"); // Adjust the URL if necessary
+        console.log("Swipes cleared");
+      } catch (error) {
+        console.error("Failed to clear swipes:", error);
+      }
+    };
+
+    clearSwipes();
+  }, []);
+  const { addSwipe } = useSwipes();
   const [characters] = useState(db);
   const [currentImageIndices, setCurrentImageIndices] = useState(
     Array(db.length).fill(0) // Track current image index for each character
@@ -43,8 +56,10 @@ const TinderCards = () => {
   };
 
   const postSwipe = async(swipedId: string, direction: string) => {
+    const newSwipe = { swipedOnId: swipedId, direction };
     try {
       await axios.post('http://localhost:3000/swipes', { swipedOnId: swipedId, direction });
+      addSwipe(newSwipe);
       console.log(`Swipe saved for ${swipedId} in direction: ${direction}`);
     } catch (error) {
         console.error("Failed to save swipe:", error);
@@ -53,7 +68,6 @@ const TinderCards = () => {
 
   const doSwipe = (direction: string, index: number) => {
       console.log(`Swiped ${direction} on ${characters[index].name}`);
-    
     // Add the swipe data to swipes state
       setSwipes((prevSwipes) => [
           ...prevSwipes,

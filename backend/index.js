@@ -222,4 +222,22 @@ app.get("/swipes", async (req, res) => {
   }
 });
 
+app.delete("/swipes", async (req, res) => {
+  const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const swipes = database.collection("swipes");
+
+    await swipes.deleteMany({}); // This will delete all documents in the swipes collection
+    res.status(200).json({ message: "All swipes cleared" });
+  } catch (error) {
+    console.error("Error clearing swipes:", error);
+    res.status(500).json({ error: "Failed to clear swipes" });
+  } finally {
+    await client.close();
+  }
+});
+
 app.listen(3000, () => console.log("Server is running on port 3000"));
