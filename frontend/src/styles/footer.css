@@ -1,0 +1,51 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Underdog&display=swap");
+
+/* temporary fix */
+html {
+  background-color: white;
+}
+body {
+  margin: 0;
+}
+
+/* Footer */
+.footer-container {
+    background-color: #ffffff;
+	/* margin-top: auto; */
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	gap: 15%;
+    box-shadow: 0 3px 5px inset rgba(0, 0, 0, 0.5);
+    height: 20vh;
+}
+
+.footer-title {
+    color: black;
+    font-family: 'Lacquer', serif;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 0;
+}
+
+.footer-logos {
+    display: flex;
+	margin-top: 75px;
+	align-items: center;
+	gap: 5px;
+	padding-left: 50px;
+}
+
+.footer-text {
+    display: flex;
+	margin-top: 7px;
+	align-items: center;
+	gap: 200px;
+	padding-right:250px;
+    font-family: 'Underdog', serif;
+
+}

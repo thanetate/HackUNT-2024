@@ -21,8 +21,9 @@ body {
   gap: 1.5rem;
   padding: 7rem;
   flex-direction: space-between;
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 1.0);  */
+  box-shadow: 0 3px 5px inset rgba(0, 0, 0, 0.5); 
   position: relative;
+  height: 85vh;
 }
 
 /* this needs to be moved up the page by about 15px */
@@ -116,13 +117,15 @@ body {
 }
 
 .feedback-container {
-  background-color: #E75E3E;
-  display: flex;
-  justify-content: space-between; /* Space between children */
-  align-items: center;
-  gap: 4.5rem;
-  padding: 7rem;
-  position: relative;
+    background-color: #E75E3E;
+    display: flex;
+    justify-content: space-between; /* Space between children */
+    align-items: center;
+    gap: 4.5rem;
+    padding: 7rem;
+    position: relative;
+    height: 85vh;
+
 }
 
 .feedback-title {

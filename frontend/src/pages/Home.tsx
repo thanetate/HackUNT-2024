@@ -1,5 +1,6 @@
 import Header from "../components/Header/page";
 import ReviewRotation from "../components/ReviewRotation";
+import Footer from "../components/Footer/page";
 //import { Link } from "react-router-dom";
 import '../styles/home.css';
 
@@ -35,10 +36,11 @@ function Home() {
 			{/* What Other Monsters are Saying / User Feedback */}
 			<div className="feedback-container">
 				<h2 className="feedback-title">What Other Monsters are Saying</h2>
-				<div> <ReviewRotation /> </div>
+				<div className="feedback-component"> <ReviewRotation /> </div>
 			
 			</div>
 			{/* Footer */}
+			<Footer />
 		</main>
 	);
 }
