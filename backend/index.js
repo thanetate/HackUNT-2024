@@ -27,6 +27,7 @@ app.post("/signup", async (req, res) => {
 
   try {
     await client.connect();
+    console.log("connected to db :)");
     const database = client.db("app-data");
     const users = database.collection("users");
 
