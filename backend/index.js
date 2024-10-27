@@ -51,6 +51,66 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+app.post("/login", async (req, res) => {
+  const client = new MongoClient(uri);
+  const { email, password } = req.body;
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const users = database.collection("users");
+
+    const user = await users.findOne({ email, password });
+
+    if (!user) {
+      return res.status(401).send("Invalid email or password");
+    }
+
+    const token = jwt.sign(user, email, {
+      expiresIn: 60 * 24,
+    });
+
+    res.status(200).json({ token, userId: user.user_id, email: user.email });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+});
+
+app.put("/user", async (req, res) => {
+  const client = new MongoClient(uri);
+  const formData = req.body.formData;
+
+  try {
+    await client.connect();
+    const db = client.db("app-data");
+    const users = db.collection("users");
+
+    const query = { user_id: formData.user_id };
+    const updateDocument = {
+      $set: {
+        username: formData.username,
+        avatar: formData.avatar,
+        monster: formData.monster,
+        about: formData.about,
+        identifier1: formData.identifier1,
+        identifier2: formData.identifier2,
+        identifier3: formData.indentifier3,
+        gender: formData.gender,
+        gender_interest: formData.gender_interest,
+        url1: formData.url1,
+        matches: formData.matches,
+      },
+    };
+    const insertedUser = await users.updateOne(query, updateDocument);
+    const updatedUser = await users.findOne(query); // Fetch the updated user
+    res.send(updatedUser);
+  } finally {
+    await client.close();
+  }
+});
+
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
 
@@ -61,6 +121,23 @@ app.get("/users", async (req, res) => {
 
     const returnedUsers = await users.find().toArray();
     res.json(returnedUsers);
+  } finally {
+    await client.close();
+  }
+});
+
+app.get("/user", async (req, res) => {
+  const client = new MongoClient(uri);
+  const userId = req.query.userId;
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const users = database.collection("users");
+
+    const query = { user_id: userId };
+    const user = await users.findOne(query);
+    res.send(user);
   } finally {
     await client.close();
   }
