@@ -1,0 +1,82 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+/* temporary fix */
+html {
+  background-color: white;
+}
+body {
+  margin: 0;
+}
+
+.landing-container {
+  /* border-color: red;
+  border-style: double; */
+  background-color: #E75E3E;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5rem;
+  padding: 7.6rem;
+  box-shadow: 10px 10px 8px #000000;
+}
+
+/* this needs to be moved up the page by about 15px */
+.landing-title {
+  color: white;
+  font-family: "Lacquer", serif;
+  font-weight: 800;
+  font-style: bold;
+  font-size: 60px;
+  padding: 0.625rem;
+}
+
+.landing-img {
+  float: right;
+}
+
+.approach-container {
+  /* background-color: white; */
+  background: linear-gradient(
+    to right,
+    #FDDE5F 0%,
+    #FDDE5F 50%,
+    black 50%,
+    black 100%
+  );
+  display: flex;
+  justify-content: space-between; /* Space between children */
+  align-items: center;
+  gap: 4.5rem;
+  padding: 7rem;
+  position: relative;
+}
+
+.approach-title {
+  color: BLACK;
+  font-family: "Lacquer", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 48px;
+  margin-right: auto;
+}
+
+.approach-text {
+  color: white;
+  font-family: "Lacquer", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 36px;
+  margin-left: auto;
+  text-align:left;
+  padding-left: 340px;
+}
+
+.approach-img {
+  /* float: right; */
+  width: 275px;
+  height: 286px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
