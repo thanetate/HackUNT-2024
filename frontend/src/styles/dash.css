@@ -219,3 +219,59 @@
 	border-style: none;
     outline: 2px solid #E75E3E;
 }
+.g1 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	bottom: 80px;
+	left: 0;
+}
+.g2 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	right: 150px;
+	top: 100px;
+}
+.g3 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	right: 450px;
+	top: 500px;
+}
+.g4-1 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	left: 50px;
+	top: 680px;
+}
+.g5-1 {
+	width: auto;
+	height: 100px;
+	position: absolute;
+	left: 800px;
+	top: 680px;
+}
+.g3-1 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	left: 610px;
+	top: 350px;
+}
+.g2-1 {
+	width: auto;
+	height: 120px;
+	position: absolute;
+	right: 50px;
+	top: 100px;
+}
+.pumpkinskull {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin-left: -400px;
+	margin-bottom: 20px;
+}

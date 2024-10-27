@@ -4,58 +4,58 @@ interface UserData {
 	avatar: string;
 	description: string;
 	email: string;
-	'id-1': string;
-	'id-2': string;
-	'id-3': string;
+	"id-1": string;
+	"id-2": string;
+	"id-3": string;
 	monster: string;
 	name: string;
 	password: string;
 	user_id: string;
 	_id: string;
 	// Add other properties as needed
-  }
+}
 
 function Identifiers() {
 	const [userData, setUserData] = useState<UserData | null>(null);
 
 	useEffect(() => {
-	  // Function to decode JWT token
-	  const decodeToken = (token: string) => {
-		const base64Url = token.split(".")[1];
-		const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-		const jsonPayload = decodeURIComponent(
-		  atob(base64)
-			.split("")
-			.map(function (c) {
-			  return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-			})
-			.join("")
-		);
-		return JSON.parse(jsonPayload);
-	  };
-	  // Fetch user information when the component mounts
-	  const fetchUserData = async () => {
-		try {
-		  const token = localStorage.getItem("token");
-		  if (token) {
-			const decoded = decodeToken(token);
-			const userId = decoded.user_id;
-			const response = await axios.get(
-			  `http://localhost:3000/user?userId=${userId}`
+		// Function to decode JWT token
+		const decodeToken = (token: string) => {
+			const base64Url = token.split(".")[1];
+			const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+			const jsonPayload = decodeURIComponent(
+				atob(base64)
+					.split("")
+					.map(function (c) {
+						return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+					})
+					.join("")
 			);
-			// console.log(response.data.email);
-			// console.log(response.data.name);
-			console.log(response.data);
-			setUserData(response.data);
-		  } else {
-			console.error("No token found");
-		  }
-		} catch (error) {
-		  console.error("Error fetching user data:", error);
-		}
-	  };
-  
-	  fetchUserData();
+			return JSON.parse(jsonPayload);
+		};
+		// Fetch user information when the component mounts
+		const fetchUserData = async () => {
+			try {
+				const token = localStorage.getItem("token");
+				if (token) {
+					const decoded = decodeToken(token);
+					const userId = decoded.user_id;
+					const response = await axios.get(
+						`http://localhost:3000/user?userId=${userId}`
+					);
+					// console.log(response.data.email);
+					// console.log(response.data.name);
+					console.log(response.data);
+					setUserData(response.data);
+				} else {
+					console.error("No token found");
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchUserData();
 	}, []);
 
 	return (
@@ -67,11 +67,11 @@ function Identifiers() {
 			</div>
 			<select
 				className="middle-select-box"
-				value={userData ? userData['id-1'] : ""}
+				value={userData ? userData["id-1"] : ""}
 				// value={selectedOption}
 				// onChange={handleOptionChange}
 			>
-                <option value="Select">Select</option>
+				<option value="Select">Select</option>
 				<option value="Ghostly Guild">Ghostly Guild</option>
 				<option value="Dragon Kin">Dragon Kin</option>
 				<option value="Goblin Tribe">Goblin Tribe</option>
@@ -83,7 +83,7 @@ function Identifiers() {
 			</div>
 			<select
 				className="middle-select-box"
-				value={userData ? userData['id-2'] : ""}
+				value={userData ? userData["id-2"] : ""}
 				// value={selectedOption}
 				// onChange={handleOptionChange}
 			>
@@ -99,7 +99,7 @@ function Identifiers() {
 				className="middle-select-box"
 				// value={selectedOption}
 				// onChange={handleOptionChange}
-				value={userData ? userData['id-3'] : ""}
+				value={userData ? userData["id-3"] : ""}
 			>
 				<option value="Select">Select</option>
 				<option value="Eyeball Soup">Eyeball Soup</option>
@@ -108,6 +108,12 @@ function Identifiers() {
 				<option value="Zombie Brains">Zombie Brains</option>
 				<option value="Ghostly Marshmallows">Ghostly Marshmallows</option>
 			</select>
+
+			<div className="ghosts">
+				<img src="./g-1.png" alt="" className="g1" />
+				<img src="./g-2.png" alt="" className="g2" />
+				<img src="./g-3.png" alt="" className="g3" />
+			</div>
 		</>
 	);
 }

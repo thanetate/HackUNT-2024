@@ -94,6 +94,12 @@ function AccountPreferences() {
 				<img src="./trash.svg" alt="trash icon" />
 				Remove
 			</button>
+			<div className="ghosts">
+				<img src="./g-3.png" alt="" className="g4-1" />
+				<img src="./g-4.png" alt="" className="g5-1" />
+				<img src="./g-2.png" alt="" className="g2-1" />
+				<img src="./g-1.png" alt="" className="g3-1" />
+			</div>
 
 		</>
 	);

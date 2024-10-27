@@ -31,6 +31,7 @@ function Dashboard() {
         <div className="right-card-container">
           {currentCard === "account-preferences" && <AccountPreferences />}
           {currentCard === "identifiers" && <Identifiers />}
+          <img src="./pumpkin_skull.svg" alt="" className="pumpkinskull"/>
   
         </div>
       </div>
