@@ -19,6 +19,11 @@ function Login() {
         email,
         password,
       });
+      const { token, user } = response.data; // Destructure token and user from response
+      console.log(response.data);
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user)); // Store user information in local storage
+
       const success = response.status === 200;
       if (success) navigate("/dashboard");
     } catch (error) {

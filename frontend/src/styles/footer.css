@@ -13,28 +13,26 @@ body {
 /* Footer */
 .footer-container {
     background-color: #ffffff;
-	/* margin-top: auto; */
-	display: flex;
 	flex: 1;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
 	gap: 15%;
     box-shadow: 0 3px 5px inset rgba(0, 0, 0, 0.5);
-    height: 20vh;
 }
 
 .footer-title {
     color: black;
     font-family: 'Lacquer', serif;
     font-weight: 800;
-    font-size: 30px;
-    margin: 0;
+    font-size: 32px;
+    margin-left: 20px;
 }
 
 .footer-logos {
     display: flex;
-	margin-top: 75px;
+	margin-top: 10px;
 	align-items: center;
 	gap: 5px;
 	padding-left: 50px;
@@ -42,10 +40,13 @@ body {
 
 .footer-text {
     display: flex;
-	margin-top: 7px;
-	align-items: center;
+	margin: 0;
+	/* padding-bottom: 20px; */
+	/* align-items: center; */
 	gap: 200px;
-	padding-right:250px;
+	padding-right: 250px;
     font-family: 'Underdog', serif;
+	float: right;
+	justify-content: space-between;
 
 }

@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
 const Footer = () => {
 	return (
 		<>
-    <footer className="footer">
-
+        <footer>
         <div className="footer-container">
             <h1 className="footer-title">Monster Mash</h1>
             
@@ -29,16 +27,11 @@ const Footer = () => {
 
             </div>
 
+            
+
             <div className="footer-text">
             
-            {/*Contact*/}
-            <div className="user-cases">
-                <h4>Contact Us</h4>
-                <br></br>
-                <a href="">Email</a>
-                <br></br>
-                <a href="">Phone</a>
-            </div>
+
 
             {/*Explore*/}
             <div className="explore">
@@ -60,7 +53,7 @@ const Footer = () => {
 
             </div>
         </div>
-    </footer>
+        </footer>
 		</>
 	);
 };

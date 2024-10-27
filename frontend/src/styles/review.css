@@ -10,7 +10,7 @@ body {
   margin: 0;
 }
 
-.card {
+.feedback-card {
     background: #FDDE5F;
     color: black;
     border-radius: 12px;
@@ -19,6 +19,12 @@ body {
     transition: transform 0.5s ease;
     width: 300px;
     text-align: center;
+    height: 200px;
+}
+
+.feedback-name {
+  font-style: bold;
+  font-weight: 800;
 }
 
 .prev, .next {
@@ -27,7 +33,7 @@ body {
     color: white;
     font-size: 2rem;
     cursor: pointer;
-    padding: 0 20px;
+    padding: 0 50px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
