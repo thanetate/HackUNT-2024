@@ -51,11 +51,11 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	gap: 100px;
-	padding-right: 250px;
+	margin-right: 250px;
     font-family: 'Underdog', serif;
 	display: flex;
 	width: 100%;
-	padding-left: 260px;
+	margin-left: 260px;
 }
 
 .footer-text h4 {
@@ -68,5 +68,5 @@ body {
 .footer-logo {
 	width: 150px;
 	height: 150px;
-	padding-left: 220px;
+	margin-left: 220px;
 }

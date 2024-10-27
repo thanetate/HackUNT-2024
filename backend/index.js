@@ -179,8 +179,8 @@ app.post("/swipes", async (req, res) => {
     await client.connect();
     const database = client.db("app-data");
     const swipes = database.collection("swipes");
-    const filter = { swipedOnId, direction };
-
+    const filter = { swipedOnId };
+    
     const update = {
       $set: {
         swipedOnId, // ID of the user who was swiped on
