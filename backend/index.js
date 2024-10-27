@@ -177,7 +177,7 @@ app.post("/swipes", async (req, res) => {
     await client.connect();
     const database = client.db("app-data");
     const swipes = database.collection("swipes");
-    const filter = { swipedOnId, direction };
+    const filter = { swipedOnId };
     
     const update = {
       $set: {
@@ -186,7 +186,7 @@ app.post("/swipes", async (req, res) => {
       }
     };
 
-    const result = await swipes.updateOne(filter, update, { upsert: true});
+    const result = await swipes.updateOne(filter, update, { upsert: true });
     res.status(201).json({ message: 'Swipe saved successfully', swipeId: result.upsertedId || result.modifiedCount });
   } catch (error) {
     console.error("Error saving swipe:", error);
