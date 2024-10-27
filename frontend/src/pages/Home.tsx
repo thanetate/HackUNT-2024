@@ -38,7 +38,7 @@ function Home() {
 			<div className="landing-container">
 			<div>
 				<h1 className="landing-title">Where Monsters Find Their Matches</h1>
-				<button className="landing-button" onClick={() => navigate('/signup')}>Get Started</button>
+				<button className="landing-button" onClick={() => navigate('/login')}>Get Started</button>
         	</div>
 				{/* replace this with svg file */}
 				<img
