@@ -62,7 +62,7 @@ const Footer = () => {
                 <a href="./contact">Contact Us</a>
             </div>
 
-            <img className="footer-logo" src="./skull_candles.png" alt="Monster Match Logo" />
+            <img className="footer-logo" src="./skull_candles.svg" alt="Monster Match Logo" />
 
             </div>
         </div>

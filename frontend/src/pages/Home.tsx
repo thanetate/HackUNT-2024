@@ -43,7 +43,7 @@ function Home() {
 				{/* replace this with svg file */}
 				<img
 					className="landing-img"
-					src="./pumpkin_mainhome_icon.png"
+					src="./pumpkin_mainhome_icon.svg"
 					alt="Monster Match Logo"
 				/>
 			</div>
@@ -61,7 +61,7 @@ function Home() {
 			<div className="feedback-container">
 				<div className="feedback-left"></div>
 				<h2 className="feedback-title">What Other Monsters are Saying</h2>
-				<img className="feedback-img" src="./green_skull.png" alt="skull" />
+				<img className="feedback-img" src="./green_skull.svg" alt="skull" />
 				<div className="feedback-component"> <ReviewRotation /> </div>
 			
 			</div>
