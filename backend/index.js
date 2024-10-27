@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.json("Hello"));
 
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const generatedUserId = uuidv4();
 
@@ -40,6 +40,7 @@ app.post("/signup", async (req, res) => {
 
     const data = {
       user_id: generatedUserId,
+      name: name,
       email: sanitizedEmail,
       password: password,
     };
@@ -76,7 +77,10 @@ app.post("/login", async (req, res) => {
       expiresIn: 60 * 24,
     });
 
-    res.status(200).json({ token, userId: user.user_id, email: user.email });
+    res.status(200).json({
+      token,
+      user,
+    });
   } catch (err) {
     console.log(err);
   } finally {
@@ -158,7 +162,7 @@ app.get("/user", async (req, res) => {
 
     const query = { user_id: userId };
     const user = await users.findOne(query);
-    res.send(user);
+    res.json(user);
   } finally {
     await client.close();
   }
