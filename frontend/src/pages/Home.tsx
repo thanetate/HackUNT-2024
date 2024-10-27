@@ -1,5 +1,6 @@
 import Header from "../components/Header/page";
-import { Link } from "react-router-dom";
+import ReviewRotation from "../components/ReviewRotation";
+//import { Link } from "react-router-dom";
 import '../styles/home.css';
 
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
 		<main>
 			{/*Header will need logo, links, log in button, and nav */}
 			<Header />
-			<button>
+			{/* <button>
 				<Link to="/signup">Signup</Link>
 			</button>
 			<button>
@@ -16,7 +17,7 @@ function Home() {
 			<button>
 				<Link to="/swipe">Swipe</Link>
 			</button>
-			<Link to="/dashboard">Dashboard</Link>
+			<Link to="/dashboard">Dashboard</Link> */}
 			{/* Landing Area */}
 			<div className="landing-container">
 			<div>
@@ -43,18 +44,8 @@ function Home() {
 			{/* What Other Monsters are Saying / User Feedback */}
 			<div className="feedback-container">
 				<h2 className="feedback-title">What Other Monsters are Saying</h2>
-				<p className="feedback-text">
-					"I never thought I'd find my perfect match, but Monster Match made it
-					possible!"
-				</p>
-				<p className="feedback-text">
-					"I've met so many amazing monsters on this site. I can't imagine my
-					life without it!"
-				</p>
-				<p className="feedback-text">
-					"I love how easy it is to connect with other monsters who share my
-					interests. Monster Match is the best!"
-				</p>
+				<div> <ReviewRotation /> </div>
+			
 			</div>
 			{/* Footer */}
 		</main>
