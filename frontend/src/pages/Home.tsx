@@ -1,3 +1,6 @@
+// import '../styles/Home.css';
+import '../styles/home.css';
+
 function Home() {
 	return (
 		<main>
@@ -15,7 +18,10 @@ function Home() {
 			<Link href="/dashboard">Dashboard</Link> */}
 			{/* Landing Area */}
 			<div className="landing-container">
+			<div>
 				<h1 className="landing-title">Where Monsters Find Their Matches</h1>
+				<button className="landing-button">Get Started</button>
+        	</div>
 				{/* replace this with svg file */}
 				<img
 					className="landing-img"
