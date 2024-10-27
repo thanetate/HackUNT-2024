@@ -13,8 +13,8 @@ createRoot(document.getElementById("root")!).render(
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>
