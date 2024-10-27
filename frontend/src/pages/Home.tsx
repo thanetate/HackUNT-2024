@@ -1,18 +1,21 @@
+import Header from "../components/Header/page";
+import { Link } from "react-router-dom";
+
 function Home() {
 	return (
 		<main>
-			{/* Header will need logo, links, log in button, and nav */}
-			{/* <Header />
+			{/*Header will need logo, links, log in button, and nav */}
+			<Header />
 			<button>
-				<Link href="/signup">Signup</Link>
+				<Link to="/signup">Signup</Link>
 			</button>
 			<button>
-				<Link href="/login">Login</Link>
+				<Link to="/login">Login</Link>
 			</button>
 			<button>
-				<Link href="/swipe">Swipe</Link>
+				<Link to="/swipe">Swipe</Link>
 			</button>
-			<Link href="/dashboard">Dashboard</Link> */}
+			<Link to="/dashboard">Dashboard</Link>
 			{/* Landing Area */}
 			<div className="landing-container">
 				<h1 className="landing-title">Where Monsters Find Their Matches</h1>
