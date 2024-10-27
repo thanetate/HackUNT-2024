@@ -1,87 +1,55 @@
-import Header from "../components/Header/page";
-import axios from "axios";
-import { toast } from "react-hot-toast";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
+function Signup() {
+  // navigate
+  const navigate = useNavigate();
 
-function Signup () {
+  // default data
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-    //navigate
-	const navigate = useNavigate();
+  // function that registers the user to the db
+  const registerUser = async (e: React.FormEvent) => {
+    // prevents default form submit
+    e.preventDefault();
+    // destruct's the email and password
+    const { email, password } = data;
+    try {
+      // sends a POST request to the /signup endpoint
+      const response = await axios.post("http://localhost:3000/signup", {
+        email,
+        password,
+      });
+      const success = response.status === 201;
+      console.log(success);
+      if (success) navigate("/dashboard");
+    } catch (error) {
+      console.error("Error registering user:", error);
+      // Optionally, you can set an error state to display an error message to the user
+    }
+  };
 
-	//default data
-	const [data, setData] = useState({
-		name: "",
-		email: "",
-		password: "",
-	});
-
-	//function that registers the user to the db
-	const registerUser = async (e) => {
-		//prevents default form submit
-		e.preventDefault();
-		//destruct's the name email and password
-		const { name, email, password } = data;
-		try {
-			//sends a POST request to the /register endpoint
-			const response = await axios.post("/register", {
-				name,
-				email,
-				password,
-			});
-			//check if response contains an error
-			if (response.data.error) {
-				//display toast error
-				toast.error(response.data.error);
-			} else {
-				//clear the form data
-				setData({ name: "", email: "", password: ""});
-				toast.success("Registration Success!");
-				//nav to login page
-				navigate("/login");
-			}
-		} catch (error) {
-			//display toast error
-			toast.error("An error occurred during registration.");
-			console.error(error);
-		}
-	};
-
-    return (
-        <>
-            <Header />
-            {/* Register user on submit */}
-			<form className="register-form">
-				<label className="register-label">Name</label>
-				<input
-					className="register-input-name"
-					type="text"
-					placeholder="enter name..."
-					// value={data.name}
-					// onChange={(e) => setData({ ...data, name: e.target.value })}
-				/>
-				<label className="register-label">Email</label>
-				<input
-					className="register-input-email"
-					type="email"
-					placeholder="enter email..."
-					// value={data.email}
-					// onChange={(e) => setData({ ...data, email: e.target.value })}
-				/>
-				<label className="register-label">Password</label>
-				<input
-					className="register-input-password"
-					type="password"
-					placeholder="enter password..."
-					// value={data.password}
-					// onChange={(e) => setData({ ...data, password: e.target.value })}
-				/>
-				<button className="register-button" type="submit">
-					Submit
-				</button>
-			</form>
-        </>
-    );
-};
+  return (
+    <form onSubmit={registerUser}>
+      <input
+        type="email"
+        placeholder="Email"
+        value={data.email}
+        onChange={(e) => setData({ ...data, email: e.target.value })}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={data.password}
+        onChange={(e) => setData({ ...data, password: e.target.value })}
+      />
+      <button type="submit">Sign Up</button>
+    </form>
+  );
+}
 
 export default Signup;
