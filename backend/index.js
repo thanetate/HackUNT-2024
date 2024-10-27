@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.json("Hello"));
 
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const generatedUserId = uuidv4();
 
@@ -40,6 +40,7 @@ app.post("/signup", async (req, res) => {
 
     const data = {
       user_id: generatedUserId,
+      name: name,
       email: sanitizedEmail,
       password: password,
     };
@@ -76,7 +77,10 @@ app.post("/login", async (req, res) => {
       expiresIn: 60 * 24,
     });
 
-    res.status(200).json({ token, userId: user.user_id, email: user.email });
+    res.status(200).json({
+      token,
+      user,
+    });
   } catch (err) {
     console.log(err);
   } finally {
@@ -158,7 +162,51 @@ app.get("/user", async (req, res) => {
 
     const query = { user_id: userId };
     const user = await users.findOne(query);
-    res.send(user);
+    res.json(user);
+  } finally {
+    await client.close();
+  }
+});
+
+app.post("/swipes", async (req, res) => {
+  const client = new MongoClient(uri);
+  const { swipedOnId, direction } = req.body;  // Expecting only swipedOnId and direction
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const swipes = database.collection("swipes");
+
+    const swipeData = {
+      swipedOnId,   // ID of the user who was swiped on
+      direction,    // 'right' for like, 'left' for dislike
+    };
+
+    const result = await swipes.insertOne(swipeData);
+    res.status(201).json({ message: 'Swipe saved successfully', swipeId: result.insertedId });
+  } catch (error) {
+    console.error("Error saving swipe:", error);
+    res.status(500).json({ error: 'Failed to save swipe' });
+  } finally {
+    await client.close();
+  }
+});
+
+
+app.get("/swipes", async (req, res) => {
+  const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const swipes = database.collection("swipes");
+
+    // Retrieve only `swipedOnId` and `direction` fields
+    const swipeHistory = await swipes.find({}, { projection: { swipedOnId: 1, direction: 1 } }).toArray();
+    res.json(swipeHistory);
+  } catch (error) {
+    console.error("Error retrieving swipes:", error);
+    res.status(500).json({ error: 'Failed to retrieve swipes' });
   } finally {
     await client.close();
   }

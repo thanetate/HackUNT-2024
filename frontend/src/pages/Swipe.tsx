@@ -6,6 +6,7 @@ import "../styles/swipe.css";
 function Swipe() {
 	return (
 		<>
+        
 			<Header />
 			<div className="swiper-page">
 				<TinderCards /> {/* Displaying the TinderCards component */}

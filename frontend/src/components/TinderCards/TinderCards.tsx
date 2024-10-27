@@ -2,6 +2,7 @@
 
 import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 // Define a type for the character object
@@ -17,20 +18,20 @@ const db = [
 ];
 
 const TinderCards = () => {
-    const [characters] = useState(db);
-    const [currentImageIndices, setCurrentImageIndices] = useState(
-      Array(db.length).fill(0) // Track current image index for each character
-    );
+  const [characters] = useState(db);
+  const [currentImageIndices, setCurrentImageIndices] = useState(
+    Array(db.length).fill(0) // Track current image index for each character
+  );
 
-    const [topCardIndex, setTopCardIndex] = useState(db.length - 1);
-    const [swipes, setSwipes] = useState<{ name: string; direction: string }[]>([]); // Track swipe direction and character name
-    
-    const handleNextImage = (index: number) => {
-      setCurrentImageIndices((prevIndices) => {
-          const newIndices = [...prevIndices];
-          newIndices[index] = (newIndices[index] + 1) % characters[index].images.length;
-          return newIndices;
-      });
+  const [topCardIndex, setTopCardIndex] = useState(db.length - 1);
+  const [swipes, setSwipes] = useState<{ name: string; direction: string }[]>([]); // Track swipe direction and character name
+
+  const handleNextImage = (index: number) => {
+    setCurrentImageIndices((prevIndices) => {
+        const newIndices = [...prevIndices];
+        newIndices[index] = (newIndices[index] + 1) % characters[index].images.length;
+        return newIndices;
+    });
   };
 
   const handlePrevImage = (index: number) => {
@@ -39,20 +40,32 @@ const TinderCards = () => {
         newIndices[index] = (newIndices[index] - 1 + characters[index].images.length) % characters[index].images.length;
         return newIndices;
     });
-};
-
-    const doSwipe = (direction: string, index: number) => {
-        console.log(`Swiped ${direction} on ${characters[index].name}`);
-      
-      // Add the swipe data to swipes state
-        setSwipes((prevSwipes) => [
-            ...prevSwipes,
-            { name: characters[index].name, direction }
-        ]);
-
-        // Move to the next card
-        setTopCardIndex((prevIndex) => prevIndex - 1);
   };
+
+  const postSwipe = async(swipedId: string, direction: string) => {
+    try {
+      await axios.post('http://localhost:3000/swipes', { swipedOnId: swipedId, direction });
+      console.log(`Swipe saved for ${swipedId} in direction: ${direction}`);
+    } catch (error) {
+        console.error("Failed to save swipe:", error);
+    }
+  };
+
+  const doSwipe = (direction: string, index: number) => {
+      console.log(`Swiped ${direction} on ${characters[index].name}`);
+    
+    // Add the swipe data to swipes state
+      setSwipes((prevSwipes) => [
+          ...prevSwipes,
+          { name: characters[index].name, direction }
+      ]);
+
+      postSwipe(characters[index].name, direction);
+
+      // Move to the next card
+      setTopCardIndex((prevIndex) => prevIndex - 1);
+
+    };
 
   // Debugging: Log the swipe data
   console.log("Swipe History:", swipes);
