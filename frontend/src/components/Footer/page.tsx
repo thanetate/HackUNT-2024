@@ -40,6 +40,7 @@ const Footer = () => {
                 <br></br>
                 <a href="./dashboard">Dashboard</a>
                 <br></br>
+                <br></br>
                 <a href="./swipe">Swipe</a>
             </div>
 
@@ -50,6 +51,7 @@ const Footer = () => {
                 <br></br>
                 <Link to="/company">Our Company</Link>
                 <br></br>
+                <br></br>
                 <Link to="/careers">Careers</Link>
             </div>
 
@@ -58,6 +60,7 @@ const Footer = () => {
                 <h4>Contact</h4>
                 <br></br>
                 <a href="mailto:monstermash@gmail.com">Email</a>
+                <br></br>
                 <br></br>
                 <a href="./contact">Contact Us</a>
             </div>

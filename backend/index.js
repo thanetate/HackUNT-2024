@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.json("Hello"));
 
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
-  const { name, email, password, gender} = req.body;
+  const { name, email, password } = req.body;
 
   const generatedUserId = uuidv4();
 
@@ -46,12 +46,15 @@ app.post("/signup", async (req, res) => {
       password: password,
     };
 
-    const insertedUser = await users.insertOne(data);
+    users.insertOne(data);
+    const insertedUser = await users.findOne({ user_id: generatedUserId });
+
+    console.log("inserted user", insertedUser);
 
     const token = jwt.sign(insertedUser, sanitizedEmail, {
       expiresIn: 60 * 24,
     });
-    res.status(201).json({ token, userId: generatedUserId });
+    res.status(201).json({ token });
   } catch (err) {
     console.log(err);
   } finally {
@@ -80,7 +83,6 @@ app.post("/login", async (req, res) => {
 
     res.status(200).json({
       token,
-      user,
     });
   } catch (err) {
     console.log(err);
@@ -171,7 +173,7 @@ app.get("/user", async (req, res) => {
 
 app.post("/swipes", async (req, res) => {
   const client = new MongoClient(uri);
-  const { swipedOnId, direction } = req.body;  // Expecting only swipedOnId and direction
+  const { swipedOnId, direction } = req.body; // Expecting only swipedOnId and direction
 
   try {
     await client.connect();
@@ -181,21 +183,23 @@ app.post("/swipes", async (req, res) => {
     
     const update = {
       $set: {
-        swipedOnId,   // ID of the user who was swiped on
-        direction,    // 'right' for like, 'left' for dislike
-      }
+        swipedOnId, // ID of the user who was swiped on
+        direction, // 'right' for like, 'left' for dislike
+      },
     };
 
     const result = await swipes.updateOne(filter, update, { upsert: true });
-    res.status(201).json({ message: 'Swipe saved successfully', swipeId: result.upsertedId || result.modifiedCount });
+    res.status(201).json({
+      message: "Swipe saved successfully",
+      swipeId: result.upsertedId || result.modifiedCount,
+    });
   } catch (error) {
     console.error("Error saving swipe:", error);
-    res.status(500).json({ error: 'Failed to save swipe' });
+    res.status(500).json({ error: "Failed to save swipe" });
   } finally {
     await client.close();
   }
 });
-
 
 app.get("/swipes", async (req, res) => {
   const client = new MongoClient(uri);
@@ -206,11 +210,13 @@ app.get("/swipes", async (req, res) => {
     const swipes = database.collection("swipes");
 
     // Retrieve only `swipedOnId` and `direction` fields
-    const swipeHistory = await swipes.find({}, { projection: { swipedOnId: 1, direction: 1 } }).toArray();
+    const swipeHistory = await swipes
+      .find({}, { projection: { swipedOnId: 1, direction: 1 } })
+      .toArray();
     res.json(swipeHistory);
   } catch (error) {
     console.error("Error retrieving swipes:", error);
-    res.status(500).json({ error: 'Failed to retrieve swipes' });
+    res.status(500).json({ error: "Failed to retrieve swipes" });
   } finally {
     await client.close();
   }

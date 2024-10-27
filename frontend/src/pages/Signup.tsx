@@ -28,6 +28,10 @@ function Signup() {
         email,
         password,
       });
+      const { token } = response.data; // Destructure token and user from response
+      console.log(response.data);
+      localStorage.setItem("token", token);
+
       const success = response.status === 201;
       console.log(success);
       if (success) navigate("/dashboard");
