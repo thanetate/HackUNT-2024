@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 interface UserData {
-	name: string;
+	avatar: string;
+	description: string;
 	email: string;
+	'id-1': string;
+	'id-2': string;
+	'id-3': string;
+	monster: string;
+	name: string;
+	password: string;
+	user_id: string;
+	_id: string;
 	// Add other properties as needed
   }
 function AccountPreferences() {
@@ -23,7 +32,6 @@ function AccountPreferences() {
 		);
 		return JSON.parse(jsonPayload);
 	  };
-  
 	  // Fetch user information when the component mounts
 	  const fetchUserData = async () => {
 		try {
@@ -62,21 +70,21 @@ function AccountPreferences() {
 			<div className="middle-spooky-title">What kind of monster are you?</div>
             <input
         className="middle-select-box"
-		value={"Zombie"}
+		value={userData ? userData.monster : ""}
         readOnly
         // onChange={handleOptionChange}
       />
             <div className="middle-des-title">Description</div>
 			<textarea
 				className="middle-des-box"
-				// value={longdesc}
+				value={userData ? userData.description : ""}
 				// onChange={handleLongDescChange}
 			></textarea>
 
             <div className="main-profile-pic">
 				{/* Calls avatar and bc avatar is set to a url we can just src the url */}
 				{/* {avatar && <img src={avatar} alt="User Avatar" />} */}
-                .
+				{userData ? <img src={userData.avatar} alt="User Avatar" className="avatar" /> : ""}
 			</div>
 			<button className="middle-change-btn">
 				<img src="./img.svg" alt="picture icon" />

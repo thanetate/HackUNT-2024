@@ -52,9 +52,13 @@ function Login() {
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
         />
-        <button type="submit">Login</button>
+       <button className="login-button" type="submit">
+					Login
+				</button>
+				<Link to="/signup" className="signup-link">
+					Sign up
+				</Link>
       </form>
-      <Link to="/signup">Don't have an account? Sign up</Link>
     </>
   );
 }

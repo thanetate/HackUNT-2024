@@ -15,7 +15,7 @@ const Header = () => {
 						<p className="redirects">Swipes</p>
 					</Link>
 					<div className="bar">|</div>
-					<Link to="/dashboard">
+					<Link to="/login">
 						<p className="redirects">Dashboard</p>
 					</Link>
 				</div>

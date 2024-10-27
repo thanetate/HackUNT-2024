@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.json("Hello"));
 
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
-  const { name, email, password } = req.body;
+  const { name, email, password, gender} = req.body;
 
   const generatedUserId = uuidv4();
 
