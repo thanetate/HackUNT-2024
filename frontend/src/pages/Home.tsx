@@ -3,10 +3,13 @@ import ReviewRotation from "../components/ReviewRotation";
 import Footer from "../components/Footer/page";
 import '../styles/home.css';
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 function Home() {
+
+	const navigate = useNavigate(); // Create navigate function
 
 	useEffect(() => {
         const scrollUp = document.querySelector('#scroll-up');
@@ -35,7 +38,7 @@ function Home() {
 			<div className="landing-container">
 			<div>
 				<h1 className="landing-title">Where Monsters Find Their Matches</h1>
-				<button className="landing-button">Get Started</button>
+				<button className="landing-button" onClick={() => navigate('/signup')}>Get Started</button>
         	</div>
 				{/* replace this with svg file */}
 				<img

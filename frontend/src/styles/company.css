@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Underdog&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lacquer&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Underdog&display=swap");
+
+.body {
+    margin: 0;
+}
+.html {
+    background-color: white;
+}
+.about-container {
+    padding: 2rem;
+    margin: 0 auto;
+    background-color: #E75E3E;
+    color: white;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+  }
+  
+  .who-we-are-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-style: bold;
+  } 
+
+  .who-we-are-description {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 24px;
+    padding-bottom: 1rem;
+  }
+  
+  .about-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-style: bold;
+  }
+  
+  .mission-title,
+  .vision-title,
+  .values-title,
+  .join-us-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-style: bold;
+  }
+  .about-description {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 24px;
+    padding-bottom: 1rem;
+  }
+  
+  .mission-description,
+  .vision-description,
+  .join-us-description {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 24px;
+    padding-bottom: 2rem;
+  }
+  
+  .values-list {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .join-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 1rem;
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .join-button:hover {
+    background-color: #333;
+  }
+  

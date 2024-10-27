@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
 const Footer = () => {
@@ -37,9 +38,9 @@ const Footer = () => {
             <div className="explore">
                 <h4>Explore</h4>
                 <br></br>
-                <a href="">Design</a>
+                <a href="./dashboard">Dashboard</a>
                 <br></br>
-                <a href="">Prototyping</a>
+                <a href="./swipe">Swipe</a>
             </div>
 
 
@@ -47,18 +48,18 @@ const Footer = () => {
             <div className="about">
                 <h4>About Us</h4>
                 <br></br>
-                <a href="">Blog</a>
+                <Link to="/company">Our Company</Link>
                 <br></br>
-                <a href="">Best Practices</a>
+                <Link to="/careers">Careers</Link>
             </div>
 
             {/*Contact*/}
             <div className="Contact">
                 <h4>Contact</h4>
                 <br></br>
-                <a href="">Blog</a>
+                <a href="mailto:monstermash@gmail.com">Email</a>
                 <br></br>
-                <a href="">Best Practices</a>
+                <a href="./contact">Contact Us</a>
             </div>
 
             <img className="footer-logo" src="./skull_candles.png" alt="Monster Match Logo" />
