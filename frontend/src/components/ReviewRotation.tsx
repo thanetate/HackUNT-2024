@@ -3,7 +3,7 @@ import '../styles/review.css';
 
 const feedback = [
   {
-    name: "Frankestein",
+    name: "Frankenstein",
     text: "I love how easy it is to connect with other monsters who share my interests. Monster Match is the best!"
   },
   {
