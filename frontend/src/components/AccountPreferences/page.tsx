@@ -34,8 +34,9 @@ function AccountPreferences() {
 			const response = await axios.get(
 			  `http://localhost:3000/user?userId=${userId}`
 			);
-			console.log(response.data.email);
-			console.log(response.data.name);
+			// console.log(response.data.email);
+			// console.log(response.data.name);
+			console.log(response.data);
 			setUserData(response.data);
 		  } else {
 			console.error("No token found");
