@@ -16,7 +16,6 @@ const db = [
     { name: 'Werewolf', images: ['/werewolf.jpg', '/werewolf1.jpg', '/werewolf2.jpg'] },
 ];
 
-console.log("pingas");
 const TinderCards = () => {
     const [characters] = useState(db);
     const [currentImageIndices, setCurrentImageIndices] = useState(
