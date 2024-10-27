@@ -1,7 +1,52 @@
 import Header from "../components/Header/page";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 function Signup () {
+
+    //navigate
+	const navigate = useNavigate();
+
+	//default data
+	const [data, setData] = useState({
+		name: "",
+		email: "",
+		password: "",
+	});
+
+	//function that registers the user to the db
+	const registerUser = async (e) => {
+		//prevents default form submit
+		e.preventDefault();
+		//destruct's the name email and password
+		const { name, email, password } = data;
+		try {
+			//sends a POST request to the /register endpoint
+			const response = await axios.post("/register", {
+				name,
+				email,
+				password,
+			});
+			//check if response contains an error
+			if (response.data.error) {
+				//display toast error
+				toast.error(response.data.error);
+			} else {
+				//clear the form data
+				setData({ name: "", email: "", password: ""});
+				toast.success("Registration Success!");
+				//nav to login page
+				navigate("/login");
+			}
+		} catch (error) {
+			//display toast error
+			toast.error("An error occurred during registration.");
+			console.error(error);
+		}
+	};
+
     return (
         <>
             <Header />
