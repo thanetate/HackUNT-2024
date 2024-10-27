@@ -4,6 +4,7 @@ import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
 import "./TinderCards.css"
 
+
 // Define a type for the character object
 //type Character = {
 //  name: string;
@@ -16,6 +17,7 @@ const db = [
     { name: 'Werewolf', images: ['/werewolf.jpg', '/werewolf1.jpg', '/werewolf2.jpg'] },
 ];
 
+console.log("pingas");
 const TinderCards = () => {
     const [characters] = useState(db);
     const [currentImageIndices, setCurrentImageIndices] = useState(
@@ -24,7 +26,7 @@ const TinderCards = () => {
 
     const [topCardIndex, setTopCardIndex] = useState(db.length - 1);
     const [swipes, setSwipes] = useState<{ name: string; direction: string }[]>([]); // Track swipe direction and character name
-
+    
     const handleNextImage = (index: number) => {
       setCurrentImageIndices((prevIndices) => {
           const newIndices = [...prevIndices];
@@ -41,7 +43,7 @@ const TinderCards = () => {
     });
 };
 
-    const onSwipe = (direction: string, index: number) => {
+    const doSwipe = (direction: string, index: number) => {
         console.log(`Swiped ${direction} on ${characters[index].name}`);
       
       // Add the swipe data to swipes state
@@ -66,7 +68,7 @@ const TinderCards = () => {
                 <TinderCard
                   className='swipe'
                   key={character.name}
-                  onSwipe={(dir) => onSwipe(dir, index)}
+                  onSwipe={(dir) => doSwipe(dir, index)}
                   preventSwipe={["up", "down"]}
                   swipeRequirementType='position'
                   swipeThreshold={300}
