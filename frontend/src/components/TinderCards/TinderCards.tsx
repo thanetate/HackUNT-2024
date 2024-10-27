@@ -2,7 +2,6 @@
 
 import TinderCard from 'react-tinder-card';
 import { useState } from 'react';
-import "./TinderCards.css"
 
 
 // Define a type for the character object
@@ -83,8 +82,8 @@ const TinderCards = () => {
                       backgroundImage: `url(${character.images[currentImageIndices[index]]})`, 
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
-                      width: '300px',
-                      height: '400px',
+                      width: '500px',
+                      height: '600px',
                       borderRadius: '10px',
                       boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
                       position: 'relative',
