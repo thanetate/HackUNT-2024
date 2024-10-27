@@ -54,7 +54,7 @@
 }
 .myprofile {
 	font-size: x-large;
-	/* padding: 20px; */
+	padding: 20px;
 	color: white;
 	text-decoration: none;
 	outline: none;
@@ -70,17 +70,7 @@
 	font-style: normal;
 }
 
-.messages {
-	font-family: 'underdog', system-ui;
-	font-size: x-large;
-	text-decoration: none;
-	outline: none;
-	font-weight: 400;
-	font-style: normal;
-	margin-right: 20px;
-}
-
-.upper-left-card{
+.left-card-container{
 	background-color: #C85439;
 	width:380px;
 	height: 118px;
@@ -88,10 +78,6 @@
     display: flex;
     flex-direction: row; 
     align-items: center; 
-	padding: 10px;
-}
-.myprofile, .messages {
-    flex-basis: auto; 
 }
 
 .match-title {
