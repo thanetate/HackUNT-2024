@@ -19,7 +19,10 @@ function App() {
 				<Link href="/dashboard">Dashboard</Link> */}
 				{/* Landing Area */}
 				<div className="landing-container">
-					<h1 className="landing-title">Where Monsters Find Their Matches</h1>
+					<div>
+						<h1 className="landing-title">Where Monsters Find Their Matches</h1>
+						<button className="landing-button">Get Started</button>
+					</div>
 					{/* replace this with svg file */}
 					<img
 						className="landing-img"
