@@ -78,7 +78,7 @@ body {
   display: flex;
   justify-content: column; /* Space between children */
   align-items: center;
-  gap: 6.5rem;
+  gap: 7rem;
   padding: 5rem;
   position: relative;
   height: 85vh;
@@ -116,16 +116,17 @@ body {
   bottom: 20px;
 }
 
+/* Feedback */
 .feedback-container {
     background-color: #E75E3E;
     display: flex;
-    justify-content: space-between; /* Space between children */
+    justify-content: space-between;
     align-items: center;
     gap: 4.5rem;
-    padding: 7rem;
+    padding: 6rem;
     position: relative;
     height: 85vh;
-
+    
 }
 
 .feedback-title {
@@ -138,6 +139,18 @@ body {
     font-style: bold;
     font-weight: 400;
     justify-content: center;
-    /* line-height: normal; */
+    line-height: normal;
     display: flex;
+}
+
+.scroll-up {
+  position: fixed;
+  right: 1.5%;
+  bottom: 3%;
+  cursor: pointer;
+}
+
+.up-arrow {
+  width: 3rem;
+  height: 3rem;
 }

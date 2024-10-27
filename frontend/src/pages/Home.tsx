@@ -1,10 +1,31 @@
 import Header from "../components/Header/page";
 import ReviewRotation from "../components/ReviewRotation";
 import Footer from "../components/Footer/page";
-//import { Link } from "react-router-dom";
 import '../styles/home.css';
+import { useEffect } from "react";
+
+
 
 function Home() {
+
+	useEffect(() => {
+        const scrollUp = document.querySelector('#scroll-up');
+        const handleScrollUp = () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        };
+
+        scrollUp?.addEventListener("click", handleScrollUp);
+
+        // Cleanup event listener on component unmount
+        return () => {
+            scrollUp?.removeEventListener("click", handleScrollUp);
+        };
+    }, []);
+
 	return (
 		<main>
 			{/*Header will need logo, links, log in button, and nav */}
@@ -39,8 +60,16 @@ function Home() {
 				<div className="feedback-component"> <ReviewRotation /> </div>
 			
 			</div>
+			{/* <Scroll /> */}
+			
+			<div className="scroll-up" id="scroll-up">
+				<img src="./up_arrow.png" className="up-arrow" alt="up-arrow" />
+			</div>
+       
 			{/* Footer */}
 			<Footer />
+
+			
 		</main>
 	);
 }
