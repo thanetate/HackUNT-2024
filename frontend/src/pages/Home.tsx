@@ -1,5 +1,6 @@
 import Header from "../components/Header/page";
 import { Link } from "react-router-dom";
+import '../styles/home.css';
 
 function Home() {
 	return (
@@ -18,7 +19,10 @@ function Home() {
 			<Link to="/dashboard">Dashboard</Link>
 			{/* Landing Area */}
 			<div className="landing-container">
+			<div>
 				<h1 className="landing-title">Where Monsters Find Their Matches</h1>
+				<button className="landing-button">Get Started</button>
+        	</div>
 				{/* replace this with svg file */}
 				<img
 					className="landing-img"
