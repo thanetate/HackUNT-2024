@@ -12,10 +12,15 @@ function Swipe() {
 				<TinderCards /> {/* Displaying the TinderCards component */}
 				<div className="swiper-left-card">
 					<div className="left-card-profile">
-						<div className="myprofile">
-							<Link to="/dashboard" className="link">
-								My Profile
-							</Link>
+						<div className="upper-left-card">
+							<div className="myprofile">
+								<Link to="/dashboard" className="link">
+									My Profile
+								</Link>
+							<div className="messages">
+								<h3>Messages</h3>
+							</div>
+							</div>
 						</div>
 						<div className="match-title">Recent Matches</div>
 						<div className="match-card-container">
