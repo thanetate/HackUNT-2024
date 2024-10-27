@@ -82,7 +82,7 @@ body {
   gap: 7rem;
   padding: 5rem;
   position: relative;
-  height: 85vh;
+  height: 75vh;
 }
 
 .approach-title {
@@ -114,7 +114,7 @@ body {
   height: 286px;
   position: absolute;
   right: 50px;
-  bottom: 20px;
+  bottom: 50px;
 }
 
 /* Feedback */
