@@ -8,12 +8,7 @@ function Home() {
 		<main>
 			{/*Header will need logo, links, log in button, and nav */}
 			<Header />
-			{/* <button>
-				<Link to="/signup">Signup</Link>
-			</button>
-			<button>
-				<Link to="/login">Login</Link>
-			</button> */}
+
 			{/* Landing Area */}
 			<div className="landing-container">
 			<div>
