@@ -56,7 +56,9 @@ function Home() {
 			</div>
 			{/* What Other Monsters are Saying / User Feedback */}
 			<div className="feedback-container">
+				<div className="feedback-left"></div>
 				<h2 className="feedback-title">What Other Monsters are Saying</h2>
+				<img className="feedback-img" src="./green_skull.png" alt="skull" />
 				<div className="feedback-component"> <ReviewRotation /> </div>
 			
 			</div>

@@ -118,14 +118,14 @@ body {
 
 /* Feedback */
 .feedback-container {
-    background-color: #E75E3E;
+    background-color: #5C0B86;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 4.5rem;
     padding: 6rem;
     position: relative;
-    height: 85vh;
+    /* height: 85vh; */
     
 }
 
@@ -133,14 +133,23 @@ body {
     color: white;
     font-size: 64px;
     /* margin-right: auto; */
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     text-align: left;
     font-family: 'Underdog', serif;
     font-style: bold;
     font-weight: 400;
     justify-content: center;
-    line-height: normal;
-    display: flex;
+    margin-bottom: 0;
+
+}
+
+.feedback-img {
+  width: 275px;
+  height: 350px;
+  position: absolute;
+  left: 50px;
+  bottom: 30px;
+    
 }
 
 .scroll-up {
