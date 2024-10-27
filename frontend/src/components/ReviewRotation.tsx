@@ -1,3 +1,5 @@
+// place holder for now
+
 import React, { useState } from 'react';
 import '../styles/review.css';
 
@@ -39,9 +41,10 @@ const ReviewRoation: React.FC = () => {
 
   return (
     <div className="feedback-container">
-      <div className="card" id="feedback-card">
+      <div className="feedback-card " id="feedback-card">
         <div className="feedback-content">
           <h3 className="feedback-name">{currentTestimonial.name}</h3>
+          {/* <img className="feedback-img" src="./quotes.png" alt="quotes" /> */}
           <p className="feedback-text">"{currentTestimonial.text}"</p>
         </div>
       </div>
