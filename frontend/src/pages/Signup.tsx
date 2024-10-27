@@ -54,6 +54,14 @@ function Signup() {
 		<>
 			<Header />
 			<form className="register-form" onSubmit={registerUser}>
+				<label className="register-label">Name</label>
+				<input
+					className="register-input-name"
+					type="text"
+					placeholder="enter name..."
+					// value={data.name}
+					// onChange={(e) => setData({ ...data, name: e.target.value })}
+				/>
 				<label className="register-label">Email</label>
 				<input
 					className="register-input-email"

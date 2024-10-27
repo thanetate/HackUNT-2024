@@ -96,7 +96,7 @@ const TinderCards = () => {
                           width: '100%',
                           textAlign: 'center',
                           padding: '10px 0',
-                          background: 'rgba(0, 0, 0, 0.4)', // Semi-transparent background for text
+                          fontSize: 'xx-large',
                           margin: 0,
                           userSelect: 'none', // Prevent selection on the text
                           cursor: 'pointer',
@@ -104,6 +104,7 @@ const TinderCards = () => {
 
                       {/* Next/Previous Buttons */}
                       <button 
+                      className='btn'
                         onClick={(e) => { 
                           e.stopPropagation(); 
                           handlePrevImage(index); 
@@ -114,11 +115,18 @@ const TinderCards = () => {
                           bottom: '50%', 
                           zIndex: 1,
                           pointerEvents: index === topCardIndex ? 'auto' : 'none', // Only clickable when on top
+                          backgroundColor: 'black', 
+                          border: 'none', 
+                          color: 'white', 
+                          cursor: 'pointer', 
+                          textAlign: 'center', 
+                          display: 'inline-block', 
                         }}
                       >
                         ‹
                       </button>
                       <button 
+                        className='btn'
                         onClick={(e) => { 
                           e.stopPropagation(); 
                           handleNextImage(index); 
@@ -129,6 +137,12 @@ const TinderCards = () => {
                           bottom: '50%', 
                           zIndex: 1,
                           pointerEvents: index === topCardIndex ? 'auto' : 'none', // Only clickable on top card
+                          backgroundColor: 'black', 
+                          border: 'none', 
+                          color: 'white', 
+                          cursor: 'pointer', 
+                          textAlign: 'center', 
+                          display: 'inline-block',
                         }}
                       >
                         ›
