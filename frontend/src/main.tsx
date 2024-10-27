@@ -7,6 +7,9 @@ import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Swipe from "./pages/Swipe";
+import Company from "./pages/Company";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
@@ -17,6 +20,9 @@ createRoot(document.getElementById("root")!).render(
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/swipe" element={<Swipe />} />
+				<Route path="/company" element={<Company />} />
+				<Route path="/careers" element={<Careers />} />
+				<Route path="/contact" element={<Contact />} />
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>
