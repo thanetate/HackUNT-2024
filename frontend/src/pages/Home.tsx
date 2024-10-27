@@ -13,11 +13,7 @@ function Home() {
 			</button>
 			<button>
 				<Link to="/login">Login</Link>
-			</button>
-			<button>
-				<Link to="/swipe">Swipe</Link>
-			</button>
-			<Link to="/dashboard">Dashboard</Link> */}
+			</button> */}
 			{/* Landing Area */}
 			<div className="landing-container">
 			<div>
