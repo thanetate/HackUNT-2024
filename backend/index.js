@@ -20,7 +20,7 @@ app.use(
 app.get("/", (req, res) => res.json("Hello"));
 
 app.post("/signup", async (req, res) => {
-  const client = new MongoClient(uri);
+  const client = new MongoClient(process.env.MONGODB_URI || uri);
   const { name, email, password } = req.body;
 
   const generatedUserId = uuidv4();
@@ -180,7 +180,7 @@ app.post("/swipes", async (req, res) => {
     const database = client.db("app-data");
     const swipes = database.collection("swipes");
     const filter = { swipedOnId };
-    
+
     const update = {
       $set: {
         swipedOnId, // ID of the user who was swiped on
